@@ -1,3 +1,5 @@
+use yajdg::menu::menu_manager::MenuManager;
+
 fn main() {
-    println!("Hello, world!");
+    let mut menu_manager = MenuManager::new();
 }
