@@ -6,11 +6,11 @@ pub enum MenuState {
 }
 
 impl MenuState {
-    pub fn message(&self) {
+    pub fn message(&self) -> &str {
         match self {
-            MenuState::Main => println!("Main Menu"),
-            MenuState::Back => println!("Back"),
-            MenuState::Exit => println!("Exit"),
+            MenuState::Main => "Main Menu",
+            MenuState::Back => "Back",
+            MenuState::Exit => "Exit",
         }
     }
 }

@@ -1,4 +1,7 @@
-use crate::menu::{menu_state::MenuState, menus::base_menu::BaseMenu};
+use crate::{
+    menu::{menu_state::MenuState, menus::base_menu::BaseMenu},
+    utils::print_choices,
+};
 
 pub struct MainMenu {
     choices: Vec<MenuState>,
@@ -6,17 +9,16 @@ pub struct MainMenu {
 
 impl BaseMenu for MainMenu {
     fn run(&self) -> MenuState {
-        println!("main");
+        print_choices(&self.choices);
         return MenuState::Exit;
-    }
-
-    fn get_choices(&self) -> &Vec<MenuState> {
-        &self.choices
     }
 }
 
 impl MainMenu {
     pub fn new() -> Self {
-        Self { choices: vec![] }
+        Self {
+            // placeholder
+            choices: vec![MenuState::Main, MenuState::Exit, MenuState::Back],
+        }
     }
 }

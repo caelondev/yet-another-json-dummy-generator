@@ -1,3 +1,5 @@
+use std::{thread, time::Duration};
+
 use crate::menu::menu_state::MenuState;
 
 pub fn ask(question: &str) -> String {
@@ -20,4 +22,11 @@ pub fn prompt_choice(choices: Vec<MenuState>) -> Option<MenuState> {
     }
 
     None
+}
+
+pub fn print_choices(choices: &Vec<MenuState>) {
+    for (i, choice) in choices.iter().enumerate() {
+        println!("{} | {}", i + 1, choice.message());
+        thread::sleep(Duration::from_secs_f32(0.1));
+    }
 }
