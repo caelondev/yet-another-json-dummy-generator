@@ -6,10 +6,16 @@ pub struct MainMenu {
 
 impl BaseMenu for MainMenu {
     fn display(&self) {
-        todo!()
+        println!("Test");
     }
 
-    fn next_menu(&self) -> Box<dyn BaseMenu> {
-        todo!()
+    fn next_menu(&self) -> MenuState {
+        return MenuState::Back;
+    }
+}
+
+impl MainMenu {
+    pub fn new() -> Self {
+        Self { choices: vec![] }
     }
 }

@@ -1,30 +1,30 @@
 use crate::menu::menu_state::MenuState;
 
-pub struct MenuManager {
-    menus: Vec<MenuState>,
+pub struct MenuStateManager {
+    menu_states: Vec<MenuState>,
     current_menu_idx: usize,
 }
 
-impl MenuManager {
+impl MenuStateManager {
     pub fn new() -> Self {
-        MenuManager {
-            menus: vec![MenuState::Main],
+        Self {
+            menu_states: vec![MenuState::Main],
             current_menu_idx: 0,
         }
     }
 
-    pub fn current_menu(&self) -> &MenuState {
-        &self.menus[self.current_menu_idx]
+    pub fn current_menu_state(&self) -> &MenuState {
+        &self.menu_states[self.current_menu_idx]
     }
 
     pub fn navigate_to(&mut self, menu: MenuState) {
-        self.menus.push(menu);
+        self.menu_states.push(menu);
         self.current_menu_idx += 1;
     }
 
     pub fn go_back(&mut self) {
         if self.current_menu_idx > 0 {
-            self.menus.pop();
+            self.menu_states.pop();
             self.current_menu_idx -= 1;
         }
     }
